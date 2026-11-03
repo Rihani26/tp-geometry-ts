@@ -1,5 +1,6 @@
 export type Coordinate = number[];
 
 export default interface Geometry {
-    getType(): string;
+  getType(): string;
+  isEmpty(): boolean;
 }

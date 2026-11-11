@@ -9,7 +9,7 @@ export default class EnvelopeBuilder {
 
     insert(coordinate: Coordinate): void {
         if (coordinate.length < 2) {
-            return; 
+            return; // coordonnée vide ignorée
         }
         this.xMin = Math.min(this.xMin, coordinate[0]);
         this.yMin = Math.min(this.yMin, coordinate[1]);
@@ -19,7 +19,7 @@ export default class EnvelopeBuilder {
 
     build(): Envelope {
         if (this.xMin === Number.POSITIVE_INFINITY) {
-            return new Envelope(); 
+            return new Envelope(); // rien d'inséré : emprise vide
         }
         return new Envelope(this.xMin, this.yMin, this.xMax, this.yMax);
     }

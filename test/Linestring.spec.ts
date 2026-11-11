@@ -47,4 +47,10 @@ describe("test LineString", () => {
         expect(copy.getPointN(0)).to.deep.equal(a); // même valeur
         expect(copy.getPointN(0)).to.not.equal(a);  // pas la même référence
     });
+    
+    it("test getEnvelope", () => {
+        const l = new LineString([new Point([0.0, 1.0]), new Point([2.0, 0.0]), new Point([1.0, 3.0])]);
+        expect(l.getEnvelope().toString()).to.equal("[0,0,2,3]");
+        expect(new LineString().getEnvelope().isEmpty()).to.be.true;
+    });
 });

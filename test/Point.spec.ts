@@ -40,6 +40,11 @@ describe("test Point", () => {
         expect(copy.x()).to.equal(p.x());
         expect(copy.y()).to.equal(p.y());
     });
+    
+    it("test getEnvelope", () => {
+        expect(new Point([3.0, 4.0]).getEnvelope().toString()).to.equal("[3,4,3,4]");
+        expect(new Point().getEnvelope().isEmpty()).to.be.true;
+    });
 
 
 
